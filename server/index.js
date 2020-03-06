@@ -3,6 +3,7 @@ const app = require("./app");
 const port = process.env.PORT || 3977;
 const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
+mongoose.set("useFindAndModify", false); //solucion a error de peticiones a base de datos findandmodify
 mongoose.connect(
   `mongodb://${IP_SERVER}:${PORT_DB}/jorgeDb`,
   { useNewUrlParser: true, useUnifiedTopology: true },
