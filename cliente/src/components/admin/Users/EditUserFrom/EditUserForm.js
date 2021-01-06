@@ -3,24 +3,39 @@ import { Avatar, Form, Input, Select, Button, Row, Col } from "antd";
 import { useDropzone } from "react-dropzone";
 import NoAvatar from "../../../../assets/img/png/no-avatar.png";
 import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
+import { getAvatarApi } from "../../../../api/user";
 
 import "./EditUserForm.scss";
 
 export default function EditUserForm(props) {
   const { user } = props;
   const [avatar, setAvatar] = useState(null);
-  const [userData, setUserData] = useState({
-    name: user.name,
-    lastname: user.lastname,
-    email: user.email,
-    role: user.role,
-    avatar: user.avatar,
-  });
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    setUserData({
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      role: user.role,
+      avatar: user.avatar,
+    });
+  }, [user]);
+
+  useEffect(() => {
+    if (user.avatar) {
+      getAvatarApi(user.avatar).then((response) => {
+        setAvatar(response);
+      });
+    } else {
+      setAvatar(null);
+    }
+  }, [user]);
 
   //actualizar avatar
   useEffect(() => {
     if (avatar) {
-      setUserData({ ...userData, avatar });
+      setUserData({ ...userData, avatar: avatar.file });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [avatar]);
@@ -44,6 +59,19 @@ export default function EditUserForm(props) {
 
 function UploadAvatar(props) {
   const { avatar, setAvatar } = props;
+  const [avatarUrl, setAvatarUrl] = useState(null);
+
+  useEffect(() => {
+    if (avatar) {
+      if (avatar.preview) {
+        setAvatarUrl(avatar.preview);
+      } else {
+        setAvatarUrl(avatar);
+      }
+    } else {
+      setAvatarUrl(null);
+    }
+  }, [avatar]);
 
   const onDrop = useCallback(
     (acceptedFiles) => {
@@ -65,7 +93,7 @@ function UploadAvatar(props) {
       {isDragActive ? (
         <Avatar size={150} src={NoAvatar} />
       ) : (
-        <Avatar size={150} src={avatar ? avatar.preview : NoAvatar} />
+        <Avatar size={150} src={avatarUrl ? avatarUrl : NoAvatar} />
       )}
     </div>
   );
@@ -83,7 +111,7 @@ function EditForm(props) {
             <Input
               prefix={<UserOutlined />}
               placeholder="Nombre"
-              defaultValue={userData.name}
+              value={userData.name}
               onChange={(e) =>
                 setUserData({ ...userData, name: e.target.value })
               }
@@ -95,7 +123,7 @@ function EditForm(props) {
             <Input
               prefix={<UserOutlined />}
               placeholder="Apellido"
-              defaultValue={userData.lastname}
+              value={userData.lastname}
               onChange={(e) =>
                 setUserData({ ...userData, lastname: e.target.value })
               }
@@ -110,7 +138,7 @@ function EditForm(props) {
             <Input
               prefix={<MailOutlined />}
               placeholder="Email"
-              defaultValue={userData.email}
+              value={userData.email}
               onChange={(e) =>
                 setUserData({ ...userData, email: e.target.value })
               }
@@ -122,7 +150,7 @@ function EditForm(props) {
             <Select
               placeholder="seleccione un rol"
               onChange={(e) => setUserData({ ...userData, role: e })}
-              defaultValue={userData.role}
+              value={userData.role}
             >
               <Option value="admin">Administrador</Option>
               <Option value="editor">Editor</Option>
