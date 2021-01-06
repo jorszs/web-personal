@@ -18,4 +18,5 @@ api.put(
 );
 api.get("/get-avatar/:avatarName", userController.getAvatar);
 //       ruta/:parametros, [middleware], controlador
+api.put("/update-user/:id", [md_auth.ensureAuth], userController.updateUser);
 module.exports = api;
