@@ -20,3 +20,10 @@ api.get("/get-avatar/:avatarName", userController.getAvatar);
 //       ruta/:parametros, [middleware], controlador
 api.put("/update-user/:id", [md_auth.ensureAuth], userController.updateUser);
 module.exports = api;
+api.put(
+  "/activate-user/:id",
+  [md_auth.ensureAuth],
+  userController.activateUser
+);
+api.delete("/delete-user/:id", [md_auth.ensureAuth], userController.deleteUser);
+api.post("/sign-up-admin", [md_auth.ensureAuth], userController.signUpAdmin);

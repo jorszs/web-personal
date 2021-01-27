@@ -1,2 +1,6 @@
 [1009/134924.733:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\jorge.sanchez\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\9c976aa3-9800-4e31-bade-b88dde7f7a16: El sistema no puede encontrar la ruta especificada. (0x3)
 [1009/134924.738:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0105/235009.850:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0114/182432.648:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0116/205648.479:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0126/203425.168:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)

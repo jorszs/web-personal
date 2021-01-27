@@ -6,8 +6,6 @@ const User = require("../models/user");
 
 function signUp(req, res) {
   const user = new User();
-  //console.log('endpoint de signup');
-  //console.log(req.body);
   const { name, lastname, email, password, repeatPassword } = req.body;
   user.name = name;
   user.lastname = lastname;
@@ -48,9 +46,7 @@ function signUp(req, res) {
 }
 
 function signIn(req, res) {
-  //console.log("Login correcto.......");
   const params = req.body;
-  console.log(params);
   const email = params.email.toLowerCase();
   const password = params.password;
 
@@ -85,7 +81,6 @@ function signIn(req, res) {
 }
 
 function getUsers(req, res) {
-  //console.log("get users");
   User.find().then((users) => {
     if (!users) {
       res.status(404).send({ message: "no se ha encontrado ningun usaurio" });
@@ -96,7 +91,6 @@ function getUsers(req, res) {
 }
 
 function getUsersActive(req, res) {
-  //console.log("get users");
   const query = req.query;
 
   User.find({ active: query.active }).then((users) => {
@@ -111,9 +105,6 @@ function getUsersActive(req, res) {
 function uploadAvatar(req, res) {
   const params = req.params;
 
-  //console.log("uploadAvatar");
-  //console.log(params);
-
   User.findById({ _id: params.id }, (err, userData) => {
     if (err) {
       res.status(500).send({ message: "Error del servidor." });
@@ -122,10 +113,6 @@ function uploadAvatar(req, res) {
         res.status(404).send({ message: "No se ha encontrado ningun usuario" });
       } else {
         let user = userData;
-        //console.log(userData);
-        //console.log(user);
-        //console.log(req.files);
-        //console.log(req);  este log es importante para saber el cuerpo de la peticion
         if (req.files) {
           let filePath = req.files.avatar.path;
           let fileSplit = filePath.split("\\");
@@ -177,9 +164,20 @@ function getAvatar(req, res) {
   });
 }
 
-function updateUser(req, res) {
-  const userData = req.body;
+async function updateUser(req, res) {
+  let userData = req.body;
+  userData.email = req.body.email.toLowerCase();
   const params = req.params;
+
+  if (userData.password) {
+    await bcrypt.hash(userData.password, null, null, (err, hash) => {
+      if (err) {
+        res.status(500).send({ message: "Error al encriptar la contraseña." });
+      } else {
+        userData.password = hash;
+      }
+    });
+  }
 
   User.findByIdAndUpdate({ _id: params.id }, userData, (err, userUpdate) => {
     if (err) {
@@ -190,13 +188,90 @@ function updateUser(req, res) {
           .status(404)
           .send({ message: "no se ha encontrado ningun usuario." });
       } else {
-        res
-          .status(200)
-          .send({ message: "usuario aactualizado correctamente." });
+        res.status(200).send({ message: "usuario actualizado correctamente." });
       }
     }
   });
 }
+
+function activateUser(req, res) {
+  const { id } = req.params;
+  const { active } = req.body;
+
+  User.findByIdAndUpdate(id, { active }, (err, userStored) => {
+    if (err) {
+      res.status(500).send({ message: "Error del servidor." });
+    } else {
+      if (!userStored) {
+        res.status(404).send({ message: "No se ha encontrado el usuario." });
+      } else {
+        if (active === true) {
+          res.status(200).send({ message: "Usuario activado correctamente" });
+        } else {
+          res
+            .status(200)
+            .send({ message: "Usuario desactivado correctamente" });
+        }
+      }
+    }
+  });
+}
+
+function deleteUser(req, res) {
+  const { id } = req.params;
+
+  User.findByIdAndRemove(id, (err, userDeleted) => {
+    if (err) {
+      res.status(500).send({ message: "Error del servidor." });
+    } else {
+      if (!userDeleted) {
+        res.status(404).send({ message: "No se ha encontrado el usuario." });
+      } else {
+        res.status(200).send({ message: "Usuario eliminado con exito." });
+      }
+    }
+  });
+}
+
+function signUpAdmin(req, res) {
+  const user = new User();
+
+  const { name, lastname, email, role, password } = req.body;
+  user.name = name;
+  user.lastname = lastname;
+  user.email = email.toLowerCase();
+  user.role = role;
+  user.active = true;
+
+  if (!password) {
+    res.status(500).send({ message: "La contraseña es obligatoria." });
+  }
+
+  bcrypt.hash(password, null, null, (err, hash) => {
+    if (err) {
+      res.status(500).send({ message: "Error al encriptar la contraseña." });
+    } else {
+      user.password = hash;
+
+      user.save((err, userStored) => {
+        if (err) {
+          res.status(500).send({ message: "El usuario ya existe." });
+        } else {
+          if (!userStored) {
+            res
+              .status(500)
+              .send({ message: "Error al crear el nuevo usuario." });
+          } else {
+            //res.status(200).send({ user: userStored });
+
+            res.status(200).send({ message: "Usuario creado correctamente" });
+          }
+        }
+      });
+    }
+  });
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -205,4 +280,7 @@ module.exports = {
   uploadAvatar,
   getAvatar,
   updateUser,
+  activateUser,
+  deleteUser,
+  signUpAdmin,
 };

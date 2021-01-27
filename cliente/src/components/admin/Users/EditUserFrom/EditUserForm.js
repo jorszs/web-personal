@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Avatar, Form, Input, Select, Button, Row, Col } from "antd";
+import { Avatar, Form, Input, Select, Button, Row, Col, notification } from "antd";
 import { useDropzone } from "react-dropzone";
 import NoAvatar from "../../../../assets/img/png/no-avatar.png";
 import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
-import { getAvatarApi } from "../../../../api/user";
+import { updateUserApi ,uploadAvatarApi, getAvatarApi } from "../../../../api/user";
+import { getAccessTokenApi} from "../../../../api/auth";
 
 import "./EditUserForm.scss";
 
 export default function EditUserForm(props) {
-  const { user } = props;
+  const { user, setIsVisibleModal, setReloadUsers } = props;
   const [avatar, setAvatar] = useState(null);
   const [userData, setUserData] = useState({});
 
@@ -42,7 +43,54 @@ export default function EditUserForm(props) {
 
   const updateUser = (e) => {
     e.preventDefault();
-    console.log(userData);
+    const token = getAccessTokenApi();
+    let userUpdate = userData;
+
+    if(userUpdate.password || userUpdate.repeatPassword) {
+      if(userUpdate.password !== userUpdate.repeatPassword) {
+        notification["error"]({
+          message: "Las contraseñas tienen que ser iguales."
+        })
+        return;
+      } else {
+        delete userUpdate.repeatPassword
+      }
+    }
+
+    if(!userUpdate.name || !userUpdate.lastname || !userUpdate.email){
+      notification["error"]({
+        message: "El nombre, apellidos y email son obligatorios."
+      })
+      return;
+    }
+
+    if(typeof userUpdate.avatar === "object") {
+      uploadAvatarApi(token, userData.avatar, user._id).then(response => {
+        userUpdate.avatar = response.avatarName;
+        updateUserApi(token, userUpdate, user._id).then(result => {
+          
+          notification["success"]({
+            message: result.message
+          });
+          setIsVisibleModal(false);
+          setReloadUsers(true)
+          delete userData.password;
+          delete userData.repeatPassword;
+        });
+
+      })
+    } else {
+      updateUserApi(token, userUpdate, user._id).then(result => {
+        
+        notification["success"]({
+          message: result.message
+        });
+        setIsVisibleModal(false);
+        setReloadUsers(true)
+        delete userData.password;
+        delete userData.repeatPassword;
+      });
+    }
   };
 
   return (
@@ -167,6 +215,7 @@ function EditForm(props) {
               prefix={<LockOutlined />}
               type="password"
               placeholder="contraseña"
+              value={userData.password}
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
               }
@@ -179,6 +228,7 @@ function EditForm(props) {
               prefix={<LockOutlined />}
               type="password"
               placeholder="repetir contraseña"
+              value={userData.repeatPassword}
               onChange={(e) =>
                 setUserData({ ...userData, repeatPassword: e.target.value })
               }

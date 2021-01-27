@@ -1,21 +1,27 @@
 .list-users {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
     &-switch {
-        display: flex !important;
-        align-items: center !important;
-        margin-bottom: 20px !important;
+      display: flex !important;
+      align-items: center !important;
 
-        > button {
-            margin-right: 20px !important;
-        }
+      > button {
+        margin-right: 20px !important;
+      }
     }
+  }
 
-    .users-active {
-        background-color: #fff;
-        padding: 10px 20px;
+  .users-active {
+    background-color: #fff;
+    padding: 10px 20px;
 
-        .ant-list-item-meta {
-            display: felx;
-            align-items: center;
-        }
+    .ant-list-item-meta {
+      display: felx;
+      align-items: center;
     }
+  }
 }
