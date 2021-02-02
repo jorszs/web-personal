@@ -39,7 +39,62 @@ function getMenus(req, res) {
     });
 }
 
+function updateMenu(req, res) {
+  let menuData = req.body;
+  const params = req.params;
+
+  Menu.findByIdAndUpdate(params.id, menuData, (err, menuUpdate) => {
+    if (err) {
+      res.status(500).send({
+        message: "Error del servidor.",
+      });
+    } else if (!menuUpdate) {
+      res.status(404).send({ message: "No se ha encontrado el menu." });
+    } else {
+      res.status(200).send({ message: "Menu actualizado correctamente." });
+    }
+  });
+}
+
+function activateMenu(req, res) {
+  const { id } = req.params;
+  const { active } = req.body;
+
+  Menu.findByIdAndUpdate(id, { active }, (err, menuStored) => {
+    if (err) {
+      res.status(500).send({ message: "Error del servidor." });
+    } else {
+      if (!menuStored) {
+        res.status(404).send({ message: "No se ha encontrado el menu" });
+      } else {
+        if (active) {
+          res.status(200).send({ message: "Menu activado correctamente." });
+        } else {
+          res.status(200).send({ message: "Menu desactivado correctamente." });
+        }
+      }
+    }
+  });
+}
+
+function deleteMenu(req, res) {
+  const { id } = req.params;
+
+  Menu.findOneAndRemove(id, (err, menuDeleted) => {
+    if (err) {
+      res.status(500).send({ message: "Error en el servidor" });
+    } else if (!menuDeleted) {
+      res.status(404).send({ message: "No se encontro el menu." });
+    } else {
+      res.status(200).send({ message: "El menu ha sido eliminado con exito." });
+    }
+  });
+}
+
 module.exports = {
   addMenu,
   getMenus,
+  updateMenu,
+  activateMenu,
+  deleteMenu,
 };

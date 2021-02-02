@@ -14,3 +14,96 @@ export function getMenuApi() {
       return err.message;
     });
 }
+
+export function updateMenuApi(token, menuId, data) {
+  const url = `${basePath}/${apiVersion}/update-menu/${menuId}`;
+
+  const params = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify(data),
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      return result.message;
+    })
+    .catch((err) => err);
+}
+
+export function activateMenuApi(token, menuId, status) {
+  const url = `${basePath}/${apiVersion}/activate-menu/${menuId}`;
+
+  const params = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({ active: status }),
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      return result.message;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function addMenuApi(token, menu) {
+  const url = `${basePath}/${apiVersion}/add-menu`;
+
+  const params = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify(menu),
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      return result.message;
+    })
+    .catch((err) => console.log(err));
+}
+
+export function deleteMenuApi(token, menuId) {
+  const url = `${basePath}/${apiVersion}/delete-menu/${menuId}`;
+
+  const params = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result.message);
+      return result.message;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

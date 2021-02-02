@@ -1,2 +1,36 @@
 .menu-web-list {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  &__items {
+    background-color: white;
+    padding: 10px 20px;
+
+    .List {
+      // cuando moviamos el menu se estiraba (ocupaba el 100% de la pantalla)
+      position: relative; //asi cuando agarremos el menu ocupara el 100% relativo a su padre
+      .draggable {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:dragged {
+          border: 3px solid #e2e2e2;
+          padding: 0px 10px;
+        }
+      }
+    }
+
+    .ant-list-item-meta {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
