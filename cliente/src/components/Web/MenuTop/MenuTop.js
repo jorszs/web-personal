@@ -24,7 +24,7 @@ export default function MenuTop() {
     <Menu className="menu-top-web" mode="horizontal">
       <Menu.Item className="menu-top-web__logo">
         <Link to={"/"}>
-          <img src={Logo} alt="jorge luis sanchez ocampo"></img>
+          <img src={Logo} alt="jorx"></img>
         </Link>{" "}
       </Menu.Item>
 

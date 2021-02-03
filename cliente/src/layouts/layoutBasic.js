@@ -14,11 +14,10 @@ export default function LayputBasic(props) {
     <Row>
       <Col lg={4}></Col>
       <Col lg={16}>
-        <MenuMovile />
-        {/* {window.screen.width < 700 ? <MenuMovile /> : <MenuTop />} */}
+        {window.screen.width > 700 ? <MenuTop /> : <MenuMovile />}
 
-        {/* <LoadRoutes routes={routes} />
-        <Footer>Jorge Luis Sanchez Ocampo</Footer> */}
+        <LoadRoutes routes={routes} />
+        <Footer>Jorge Luis Sanchez Ocampo</Footer>
       </Col>
       <Col lg={4}></Col>
     </Row>
