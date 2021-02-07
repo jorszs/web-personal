@@ -3,24 +3,24 @@ import { Route, Switch } from "react-router-dom";
 import { Layout, Row, Col } from "antd";
 import MenuTop from "../components/Web/MenuTop";
 import MenuMovile from "../components/Web/MenuMovile";
-
+import Footer from "../components/Web/Footer";
 import "./LayoutBasic.scss";
 
 export default function LayputBasic(props) {
   const { routes } = props;
-  const { Footer } = Layout;
 
   return (
-    <Row>
-      <Col lg={4}></Col>
-      <Col lg={16}>
-        {window.screen.width > 700 ? <MenuTop /> : <MenuMovile />}
-
-        <LoadRoutes routes={routes} />
-        <Footer>Jorge Luis Sanchez Ocampo</Footer>
-      </Col>
-      <Col lg={4}></Col>
-    </Row>
+    <>
+      <Row>
+        <Col lg={4}></Col>
+        <Col lg={16}>
+          {window.screen.width > 700 ? <MenuTop /> : <MenuMovile />}
+        </Col>
+        <Col lg={4}></Col>
+      </Row>
+      <LoadRoutes routes={routes} />
+      <Footer />
+    </>
   );
 }
 
