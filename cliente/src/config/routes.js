@@ -6,7 +6,8 @@ import LayoutBasic from "../layouts/layoutBasic";
 import AdminHome from "../pages/Admin";
 import AdminSignIn from "../pages/Admin/SignIn";
 import AdminUsers from "../pages/Admin/users";
-import MenuWeb from "../pages/Admin/MenuWeb";
+import AdminMenuWeb from "../pages/Admin/MenuWeb";
+import AdminCourses from "../pages/Admin/Courses";
 
 //pages
 import Home from "../pages/Home";
@@ -40,7 +41,12 @@ const routes = [
       {
         path: "/admin/menu",
         exact: true,
-        component: MenuWeb,
+        component: AdminMenuWeb,
+      },
+      {
+        path: "/admin/courses",
+        exact: true,
+        component: AdminCourses,
       },
       {
         component: Error404,
@@ -65,6 +71,11 @@ const routes = [
       {
         path: "/courses",
         component: Courses,
+        exact: true,
+      },
+      {
+        path: "/index.html",
+        component: Home,
         exact: true,
       },
       {

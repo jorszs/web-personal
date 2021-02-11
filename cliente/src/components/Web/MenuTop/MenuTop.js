@@ -11,13 +11,19 @@ export default function MenuTop() {
   const [menuData, setMenuData] = useState([]);
 
   useEffect(() => {
-    getMenuApi().then((response) => {
-      const arrayMenu = [];
-      response.menu.forEach((item) => {
-        item.active && arrayMenu.push(item);
+    try {
+      getMenuApi().then((response) => {
+        const arrayMenu = [];
+        if (response.menu) {
+          response.menu.forEach((item) => {
+            item.active && arrayMenu.push(item);
+          });
+          setMenuData(arrayMenu);
+        }
       });
-      setMenuData(arrayMenu);
-    });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (

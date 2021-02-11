@@ -14,7 +14,7 @@ export default function HomeCourses() {
   return (
     <Row className="home-courses">
       <Col lg={24} className="home-courses__title">
-        <h2>aprende y mejora tus habilidades</h2>
+        <h2>Aprende y mejora tus habilidades</h2>
       </Col>
       <Col lg={4} />
       <Col lg={16}>

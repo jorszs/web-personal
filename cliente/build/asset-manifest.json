@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f77e2b3d.chunk.css",
+    "main.js": "/static/js/main.1621ac6d.chunk.js",
+    "main.js.map": "/static/js/main.1621ac6d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e1db6881.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e1db6881.js.map",
+    "static/css/2.220ccb42.chunk.css": "/static/css/2.220ccb42.chunk.css",
+    "static/js/2.9dc742f6.chunk.js": "/static/js/2.9dc742f6.chunk.js",
+    "static/js/2.9dc742f6.chunk.js.map": "/static/js/2.9dc742f6.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.10c510d2dd22a5cfc7fe078031236802.js": "/precache-manifest.10c510d2dd22a5cfc7fe078031236802.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.220ccb42.chunk.css.map": "/static/css/2.220ccb42.chunk.css.map",
+    "static/css/main.f77e2b3d.chunk.css.map": "/static/css/main.f77e2b3d.chunk.css.map",
+    "static/js/2.9dc742f6.chunk.js.LICENSE.txt": "/static/js/2.9dc742f6.chunk.js.LICENSE.txt",
+    "static/media/avatar.jpg": "/static/media/avatar.b12bf936.jpg",
+    "static/media/SignIn.scss": "/static/media/background.c9c8c40b.jpg",
+    "static/media/css-grid.jpg": "/static/media/css-grid.5d188bd4.jpg",
+    "static/media/facebook.7dbf4ce8.svg": "/static/media/facebook.7dbf4ce8.svg",
+    "static/media/MainBanner.scss": "/static/media/home-v1.d8778e97.jpg",
+    "static/media/javascript-es6.jpg": "/static/media/javascript-es6.26c0437b.jpg",
+    "static/media/linkedin.27e7335c.svg": "/static/media/linkedin.27e7335c.svg",
+    "static/media/prestashop-1-7.jpg": "/static/media/prestashop-1-7.0b68c9e0.jpg",
+    "static/media/react-js-hooks.jpg": "/static/media/react-js-hooks.423a3c28.jpg",
+    "static/media/react-native.jpg": "/static/media/react-native.99cbeed9.jpg",
+    "static/media/twitter.2dedd499.svg": "/static/media/twitter.2dedd499.svg",
+    "static/media/wordpress.jpg": "/static/media/wordpress.be7be3ca.jpg",
+    "static/media/youtube.ceddbee1.svg": "/static/media/youtube.ceddbee1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e1db6881.js",
+    "static/css/2.220ccb42.chunk.css",
+    "static/js/2.9dc742f6.chunk.js",
+    "static/css/main.f77e2b3d.chunk.css",
+    "static/js/main.1621ac6d.chunk.js"
+  ]
+}
