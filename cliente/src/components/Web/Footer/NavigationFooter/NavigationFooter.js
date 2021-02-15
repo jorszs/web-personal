@@ -14,14 +14,14 @@ import "./NavigationFooter.scss";
 
 export default function NavigationFooter() {
   return (
-    <Row className="navigation-footer">
-      <Col md={24} lg={24}>
+    <Row className="navigation-footer" justify="space-between">
+      <Col xs={24} sm={24} md={24} lg={24}>
         <h3>Navegacion</h3>
       </Col>
-      <Col md={12} lg={12}>
+      <Col xs={11} sm={12} md={12} lg={12}>
         <RenderListLeft />
       </Col>
-      <Col md={12} lg={12}>
+      <Col xs={11} sm={12} md={12} lg={12}>
         <RenderListRight />
       </Col>
     </Row>

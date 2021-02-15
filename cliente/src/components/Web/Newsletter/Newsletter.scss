@@ -3,6 +3,9 @@
   position: relative;
 
   h3 {
+    @media (max-width: $media-breackpoint-width-sm) {
+      border-bottom: blanchedalmond solid 1px;
+    }
     color: $font-light;
     font-weight: bold;
   }

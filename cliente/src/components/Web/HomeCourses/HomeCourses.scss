@@ -55,6 +55,30 @@
     }
   }
 
+  &-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    button {
+      background-color: $primary-color;
+      border: 0;
+      color: $font-light;
+      width: 200px;
+      height: 40px;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: $primary-color-hover;
+        color: $font-light;
+      }
+    }
+  }
+
   &__more {
     text-align: center;
 

@@ -13,10 +13,14 @@
   /* Position and sizing of burger button */
   .bm-burger-button {
     position: fixed;
+    //position: relative;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
     width: 36px;
     height: 30px;
     left: 36px;
-    top: 36px;
+    top: 25px;
     cursor: pointer;
   }
 
@@ -75,6 +79,7 @@
     .social-links {
       margin-top: auto;
       margin-bottom: 20px;
+      padding-bottom: 10px;
     }
   }
 

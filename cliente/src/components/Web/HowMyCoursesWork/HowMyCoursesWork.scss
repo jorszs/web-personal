@@ -6,6 +6,9 @@
 
   &__title {
     text-align: center;
+    @media (max-width: $media-breackpoint-width-sm) {
+      line-height: 1.1;
+    }
     line-height: 0.7;
     margin-bottom: 40px;
 

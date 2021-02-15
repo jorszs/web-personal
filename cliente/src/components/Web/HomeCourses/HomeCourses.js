@@ -12,74 +12,78 @@ import "./HomeCourses.scss";
 
 export default function HomeCourses() {
   return (
-    <Row className="home-courses">
-      <Col lg={24} className="home-courses__title">
-        <h2>Aprende y mejora tus habilidades</h2>
-      </Col>
-      <Col lg={4} />
-      <Col lg={16}>
-        <Row className="row-courses">
-          <Col md={6}>
-            <CardCourse
-              image={reactJsHooks}
-              title="React Js Hooks"
-              subtitle="Intermedio - React/Javascript"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-          <Col md={6}>
-            <CardCourse
-              image={reactNative}
-              title="React Native Expo"
-              subtitle="Intermedio - React/Javascript"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-          <Col md={6}>
-            <CardCourse
-              image={javaScript}
-              title="JavaScript ES6"
-              subtitle="Basico - Javascript"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-          <Col md={6}>
-            <CardCourse
-              image={wordPress}
-              title="Wordpress"
-              subtitle="Basico - worpress"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-        </Row>
-        <Row className="row-courses">
-          <Col md={6}>
-            <CardCourse
-              image={prestaShop}
-              title="PrestaShop"
-              subtitle="Basico - PrestaShop"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-          <Col md={6} />
-          <Col md={6} />
-          <Col md={6}>
-            <CardCourse
-              image={cssGrid}
-              title="CssGrid"
-              subtitle="Intermedio - CSS"
-              link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
-            />
-          </Col>
-        </Row>
-      </Col>
-      <Col lg={4} />
-      <Col lg={24} className="home-courses__more">
-        <Link to="/courses">
-          <Button>Ver mas</Button>
-        </Link>
-      </Col>
-    </Row>
+    <>
+      <Row className="home-courses">
+        <Col lg={24} className="home-courses__title">
+          <h2>Aprende y mejora tus habilidades</h2>
+        </Col>
+        <Col lg={4} />
+        <Col lg={16}>
+          <Row className="row-courses">
+            <Col md={6}>
+              <CardCourse
+                image={reactJsHooks}
+                title="React Js Hooks"
+                subtitle="Intermedio - React/Javascript"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+            <Col md={6}>
+              <CardCourse
+                image={reactNative}
+                title="React Native Expo"
+                subtitle="Intermedio - React/Javascript"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+            <Col md={6}>
+              <CardCourse
+                image={javaScript}
+                title="JavaScript ES6"
+                subtitle="Basico - Javascript"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+            <Col md={6}>
+              <CardCourse
+                image={wordPress}
+                title="Wordpress"
+                subtitle="Basico - worpress"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+          </Row>
+          <Row className="row-courses">
+            <Col md={6}>
+              <CardCourse
+                image={prestaShop}
+                title="PrestaShop"
+                subtitle="Basico - PrestaShop"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+            <Col md={6} />
+            <Col md={6} />
+            <Col md={6}>
+              <CardCourse
+                image={cssGrid}
+                title="CssGrid"
+                subtitle="Intermedio - CSS"
+                link="https://www.udemy.com/course/react-js-inicia-en-el-mundo-de-los-frameworks-de-javascript/"
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Row className="home-courses-more">
+        <Col lg={4} sm={4} />
+        <Col lg={24} sm={24} className="home-courses-more__button">
+          <Link to="/courses">
+            <Button>Ver mas</Button>
+          </Link>
+        </Col>
+      </Row>
+    </>
   );
 }
 
