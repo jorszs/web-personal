@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Layout, Row, Col } from "antd";
 import MenuTop from "../components/Web/MenuTop";
 import MenuMovile from "../components/Web/MenuMovile";
 import Footer from "../components/Web/Footer";
 import "./LayoutBasic.scss";
+import { hotjar } from "react-hotjar";
 
 export default function LayputBasic(props) {
   const { routes } = props;
+
+  useEffect(() => {
+    hotjar.initialize(2253218, 6);
+  }, []);
 
   return (
     <>
