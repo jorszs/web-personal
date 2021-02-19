@@ -34,3 +34,5 @@
 [0214/002424.245:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
 [0214/002424.245:ERROR:exception_snapshot_win.cc(99)] thread ID 1180 not found in process
 [0215/112506.119:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0217/192815.517:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[0218/173422.395:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)

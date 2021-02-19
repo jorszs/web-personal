@@ -24,21 +24,21 @@ export default function HomeMyCoursesWork() {
       <Col lg={4} />
       <Col lg={16}>
         <Row className="row-cards">
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<ClockCircleOutlined />}
               title="Cursos y clases"
               description="clases dinamicas, duración maxima de 15 minutos por clase. Faciles de comprender y seguir."
             />
           </Col>
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<KeyOutlined />}
               title="Acceso 24/7"
               description="Accede a los cursos en cualquier momento, en cualquier lugar simportar lugar ni hora."
             />
           </Col>
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<MessageOutlined />}
               title="Aprendizaje colaborativo"
@@ -47,21 +47,21 @@ export default function HomeMyCoursesWork() {
           </Col>
         </Row>
         <Row className="row-cards">
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<UserOutlined />}
-              title="Mejore tu perfil"
+              title="Mejora tu perfil"
               description="Aprende y mejora tu perfil para mantenerte actualizado."
             />
           </Col>
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<DollarOutlined />}
               title="Precios bajos"
               description="Adquiere el curso que quieras por 9.99 y ten acceso a el por tiempo ilimitado."
             />
           </Col>
-          <Col md={8}>
+          <Col md={8} xs={24}>
             <CardInfo
               Icon={<CheckCircleOutlined />}
               title="Certificado de finalización"

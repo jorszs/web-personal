@@ -4,8 +4,6 @@ function addCourse(req, res) {
   const body = req.body;
   const course = new Course(body);
 
-  console.log(req.body);
-
   course.save((err, courseStored) => {
     if (err) {
       res

@@ -10,9 +10,9 @@ import { hotjar } from "react-hotjar";
 export default function LayputBasic(props) {
   const { routes } = props;
 
-  useEffect(() => {
-    hotjar.initialize(2253218, 6);
-  }, []);
+  // useEffect(() => {
+  //   hotjar.initialize(2253218, 6);
+  // }, []);
 
   return (
     <>
