@@ -6,6 +6,7 @@ import {
   UserOutlined,
   MenuOutlined,
   BookOutlined,
+  MessageOutlined,
 } from "@ant-design/icons";
 import "./MenuSider.scss";
 
@@ -43,6 +44,12 @@ function MenuSider(props) {
           <Link to="/admin/courses">
             <BookOutlined />
             <span className="nac-text">Cursos</span>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="/admin/blog">
+          <Link to="/admin/blog">
+            <MessageOutlined />
+            <span className="nac-text">Blog</span>
           </Link>
         </Menu.Item>
       </Menu>
