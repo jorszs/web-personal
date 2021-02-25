@@ -1,5 +1,6 @@
+/* eslint-disable no-useless-escape */
 import React, { useState } from "react";
-import { Form, Input, Button, notifications, notification } from "antd";
+import { Form, Input, Button, notification } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { suscribeNewsletterApi } from "../../../api/newsletter";
 

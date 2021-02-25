@@ -6,7 +6,7 @@ import Modal from "../../../components/modal";
 import PostList from "../../../components/admin/Blog/PostList";
 import Pagination from "../../../components/Pagination";
 import AddEditPostForm from "../../../components/admin/Blog/AddEditPostForm";
-import { getPostApi } from "../../../api/post";
+import { getPostsApi } from "../../../api/post";
 
 import "./Blog.scss";
 
@@ -20,7 +20,7 @@ function Blog(props) {
   const { page = 1 } = queryString.parse(location.search);
 
   useEffect(() => {
-    getPostApi(12, page)
+    getPostsApi(12, page)
       .then((response) => {
         if (response?.code !== 200) {
           notification["warning"]({ message: response.message });
@@ -29,7 +29,7 @@ function Blog(props) {
         }
       })
       .catch((err) => {
-        notification["erro"]({ message: "Error del servidor." });
+        notification["error"]({ message: "Error del servidor." });
       });
     setReloadPosts(false);
   }, [page, reloadPosts]);
@@ -46,6 +46,18 @@ function Blog(props) {
     );
   };
 
+  const editPost = (post) => {
+    setIsVisibleModal(true);
+    setModalTitle("Editar post");
+    setModalContent(
+      <AddEditPostForm
+        setIsVisibleModal={setIsVisibleModal}
+        setReloadPosts={setReloadPosts}
+        post={post}
+      />
+    );
+  };
+
   if (!posts) {
     return null;
   }
@@ -58,7 +70,11 @@ function Blog(props) {
         </Button>
       </div>
 
-      <PostList posts={posts} setReloadPosts={setReloadPosts} />
+      <PostList
+        posts={posts}
+        setReloadPosts={setReloadPosts}
+        editPost={editPost}
+      />
       <Pagination posts={posts} location={location} history={history} />
 
       <Modal

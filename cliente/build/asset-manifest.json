@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.ee9eb23d.chunk.css",
-    "main.js": "/static/js/main.7a858000.chunk.js",
-    "main.js.map": "/static/js/main.7a858000.chunk.js.map",
+    "main.css": "/static/css/main.cee8972a.chunk.css",
+    "main.js": "/static/js/main.6816d6cc.chunk.js",
+    "main.js.map": "/static/js/main.6816d6cc.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e1db6881.js",
     "runtime-main.js.map": "/static/js/runtime-main.e1db6881.js.map",
     "static/css/2.220ccb42.chunk.css": "/static/css/2.220ccb42.chunk.css",
-    "static/js/2.a3a6f97d.chunk.js": "/static/js/2.a3a6f97d.chunk.js",
-    "static/js/2.a3a6f97d.chunk.js.map": "/static/js/2.a3a6f97d.chunk.js.map",
+    "static/js/2.7c504700.chunk.js": "/static/js/2.7c504700.chunk.js",
+    "static/js/2.7c504700.chunk.js.map": "/static/js/2.7c504700.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b8b693404e5826fd725264415baaeab1.js": "/precache-manifest.b8b693404e5826fd725264415baaeab1.js",
+    "precache-manifest.8817aa6ed8b7a08794ce0985f5eedbc3.js": "/precache-manifest.8817aa6ed8b7a08794ce0985f5eedbc3.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.220ccb42.chunk.css.map": "/static/css/2.220ccb42.chunk.css.map",
-    "static/css/main.ee9eb23d.chunk.css.map": "/static/css/main.ee9eb23d.chunk.css.map",
-    "static/js/2.a3a6f97d.chunk.js.LICENSE.txt": "/static/js/2.a3a6f97d.chunk.js.LICENSE.txt",
+    "static/css/main.cee8972a.chunk.css.map": "/static/css/main.cee8972a.chunk.css.map",
+    "static/js/2.7c504700.chunk.js.LICENSE.txt": "/static/js/2.7c504700.chunk.js.LICENSE.txt",
+    "static/media/academy-logo.png": "/static/media/academy-logo.620c02b9.png",
     "static/media/avatar.jpg": "/static/media/avatar.b12bf936.jpg",
     "static/media/SignIn.scss": "/static/media/background.c9c8c40b.jpg",
     "static/media/css-grid.jpg": "/static/media/css-grid.5d188bd4.jpg",
     "static/media/facebook.7dbf4ce8.svg": "/static/media/facebook.7dbf4ce8.svg",
     "static/media/MainBanner.scss": "/static/media/home-v1.d8778e97.jpg",
     "static/media/javascript-es6.jpg": "/static/media/javascript-es6.26c0437b.jpg",
+    "static/media/jorx.png": "/static/media/jorx.0bd504e3.png",
     "static/media/linkedin.27e7335c.svg": "/static/media/linkedin.27e7335c.svg",
     "static/media/prestashop-1-7.jpg": "/static/media/prestashop-1-7.0b68c9e0.jpg",
     "static/media/react-js-hooks.jpg": "/static/media/react-js-hooks.423a3c28.jpg",
@@ -31,8 +33,8 @@
   "entrypoints": [
     "static/js/runtime-main.e1db6881.js",
     "static/css/2.220ccb42.chunk.css",
-    "static/js/2.a3a6f97d.chunk.js",
-    "static/css/main.ee9eb23d.chunk.css",
-    "static/js/main.7a858000.chunk.js"
+    "static/js/2.7c504700.chunk.js",
+    "static/css/main.cee8972a.chunk.css",
+    "static/js/main.6816d6cc.chunk.js"
   ]
 }
