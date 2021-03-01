@@ -34,4 +34,4 @@ Use "yarn dev" or "npm run dev"
 
 1. You can use Mongo 3t to visualize the data base
 2. Also you can use Postman to verify the funtionality of the Api (node server)
-3. If you have some problems with CORS, only install an chrome extension like "Allow Cors" or whatever you prefer.
+3. If you have some problems with CORS, only install a chrome extension like "Allow Cors" or whatever you prefer.
