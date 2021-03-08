@@ -2,9 +2,9 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 //Deploy port
-//const port = process.env.PORT || 80;
+const port = process.env.PORT || 80;
 //dev port
-const port = process.env.PORT || 3977;
+//const port = process.env.PORT || 3977;
 const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
 mongoose.set("useFindAndModify", false); //solucion a error de peticiones a base de datos findandmodify
